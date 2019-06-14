@@ -3,7 +3,9 @@ import './myApp.css';
 import { initialItems, initialSellers } from './myData.js';
 import MyItem from './myItem.jsx';
 import MySeller from './mySeller.jsx';
+import MyItemDetails from './myItemDetails.jsx';
 import { BrowserRouter, Route } from 'react-router-dom';
+
 //Item(description, price, image, id, sellerId)
 let renderAllItems = () => {
   return (
@@ -34,6 +36,22 @@ let renderSeller = (renderParameter) => {
   return <MySeller id={seller.id} name={seller.name} rating={seller.rating} />;
 };
 
+let renderItemDetails = (renderParameter) => {
+  let idItem = renderParameter.match.params.itemId; //alert(idItem);
+  let itemArray = initialItems.filter((item) => item.id == idItem);
+  let item = itemArray[0];
+
+  return (
+    <MyItemDetails
+      numberLeftInStock={item.number_left_in_stock}
+      description={item.description}
+      price={item.price}
+      image={item.image}
+      id={item.id}
+    />
+  );
+};
+
 class App extends Component {
   render() {
     return (
@@ -41,6 +59,11 @@ class App extends Component {
         <div>
           <Route exact={true} path="/" render={renderAllItems} />
           <Route exact={true} path="/seller/:sId" render={renderSeller} />
+          <Route
+            exact={true}
+            path="/details/:itemId"
+            render={renderItemDetails}
+          />
         </div>
       </BrowserRouter>
     );

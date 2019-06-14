@@ -7,11 +7,13 @@ class MyItem extends Component {
   render() {
     return (
       <div className="card center">
-        <h1>ItemId: {this.props.id} </h1>
         <h3>{this.props.description}</h3>
         <div>Price: ${this.props.price}</div>
         <div>
           <Link to={'/seller/' + this.props.sellerId}>Visit seller</Link>
+        </div>
+        <div>
+          <Link to={'/details/' + this.props.id}>See details</Link>
         </div>
         <img src={this.props.image} />
       </div>
