@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
 import './myApp.css';
-import { initialItems, initialSellers } from './myData.js';
+
+import {
+  initialItems,
+  initialSellers,
+  itemsReviews,
+  reviewers,
+} from './myData.js';
+
 import MyItem from './myItem.jsx';
 import MySeller from './mySeller.jsx';
 import MyItemDetails from './myItemDetails.jsx';
+import MyReviewer from './myReviewer.jsx';
+
 import { BrowserRouter, Route } from 'react-router-dom';
 
 //Item(description, price, image, id, sellerId)
@@ -41,6 +50,9 @@ let renderItemDetails = (renderParameter) => {
   let itemArray = initialItems.filter((item) => item.id == idItem);
   let item = itemArray[0];
 
+  let itemReviews = itemsReviews.filter(
+    (itemReview) => itemReview.idItem === idItem
+  );
   return (
     <MyItemDetails
       numberLeftInStock={item.number_left_in_stock}
@@ -48,8 +60,17 @@ let renderItemDetails = (renderParameter) => {
       price={item.price}
       image={item.image}
       id={item.id}
+      reviews={itemReviews}
     />
   );
+};
+
+let renderReviewer = (renderParameter) => {
+  let idReviewer = renderParameter.match.params.rId;
+  let reviewer = reviewers.find((reviewer) => reviewer.id === idReviewer);
+  if (reviewer == undefined) return <div>Reviewer not found</div>;
+  //Seller(id, name
+  return <MyReviewer id={reviewer.id} name={reviewer.name} />;
 };
 
 class App extends Component {
@@ -64,6 +85,8 @@ class App extends Component {
             path="/details/:itemId"
             render={renderItemDetails}
           />
+
+          <Route exact={true} path="/reviewer/:rId" render={renderReviewer} />
         </div>
       </BrowserRouter>
     );

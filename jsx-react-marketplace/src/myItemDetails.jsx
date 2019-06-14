@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './myApp.css';
+import MyItemReview from './myItemReview';
 
 class MyItemDetails extends Component {
   render() {
@@ -10,6 +11,9 @@ class MyItemDetails extends Component {
         <div>Price: ${this.props.price}</div>
         <p>Left in stock: {this.props.numberLeftInStock}</p>
         <img src={this.props.image} className="mediumImg" />
+        {this.props.reviews.map((review) => (
+          <MyItemReview review={review} />
+        ))}
       </div>
     );
   }

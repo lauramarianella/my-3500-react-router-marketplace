@@ -63,4 +63,57 @@ let initialSellers = [
   },
 ];
 
-export { initialItems, initialSellers };
+let itemsReviews = [
+  {
+    idItem: 'asewq',
+    idReviewer: 'p123',
+    review: 'Horrible boat',
+  },
+  {
+    idItem: 'asewq',
+    idReviewer: 'p456',
+    review: 'Nice boat',
+  },
+
+  {
+    idItem: 'wqwasq',
+    idReviewer: 'p123',
+    review: 'Horrible chairs',
+  },
+  {
+    idItem: 'wqwasq',
+    idReviewer: 'p456',
+    review: 'Nice chairs',
+  },
+  {
+    idItem: '123',
+    idReviewer: 'p456',
+    review: 'Gorgeous cats',
+  },
+
+  {
+    idItem: '456',
+    idReviewer: 'p456',
+    review: 'Adorable dogs',
+  },
+
+  {
+    idItem: '789',
+    idReviewer: 'p456',
+    review: 'Uncomfortable snowshoes',
+  },
+];
+
+let reviewers = [
+  {
+    id: 'p123',
+    name: 'Buyer 123',
+  },
+
+  {
+    id: 'p456',
+    name: 'Buyer 456',
+  },
+];
+
+export { initialItems, initialSellers, itemsReviews, reviewers };
