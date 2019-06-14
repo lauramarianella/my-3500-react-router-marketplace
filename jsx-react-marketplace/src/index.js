@@ -1,12 +1,12 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import App from './App.jsx';
+import MyApp from './myApp.jsx';
+import React, { Component } from 'react';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const SHOW_SOLUTION_ORIGINAL = false;
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+if (SHOW_SOLUTION_ORIGINAL) {
+  ReactDOM.render(<App />, document.getElementById('root'));
+} else {
+  ReactDOM.render(<MyApp />, document.getElementById('root'));
+}
