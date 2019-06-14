@@ -1,0 +1,107 @@
+http://wakaworkshops.surge.sh/workshop/react-router-marketplace/slides/33
+
+#########################DATA##########################
+let initialItems=[
+
+{description:'Nice boats...'
+, price:10000
+, image:'/boat.png'
+, sellerId:"ewio"}
+
+,{},...
+]
+
+
+let initialSellers=[
+
+{
+id:"ewio"
+,name:"Jack Frost"
+,rating: "5 starts"
+}
+
+,{},...
+]
+
+
+#########################ITEM##########################
+import React,{Component} from 'react'
+import {Link} from 'react-router-dom'
+import './App.css'
+
+class Item extends Component{
+ render(){
+  return(
+    <div clasName='card center'>
+	<img height="100px" src={this.props.imageLocation} />
+	<div>props description
+	<div>props. cost
+	<Link to={"/seller/" + props.sellerId> Link to seller
+    </div>
+  )
+ }
+}
+export default Item;
+
+}
+
+########################SELLER###########################
+class Seller
+render
+	<div className"card center"
+		<div>props.seller.name
+		<div>props.seller rating
+
+########################ALL ITEMS###########################
+import Route, BrowserRouter from 'react-router-dom'
+import {itms,sellers}  from './Data.js'
+
+
+class App
+render
+<BrowserRouter>
+<div>
+<Route exact={true} path="/" render={renderAllItems}
+<Route exct true path'/seller/:sid' render={renderSeller}
+
+let renderAllItems = () =>{
+return <div>
+data.map( <Item props>
+
+}
+
+
+let renderSeller = (rd) =>{
+sellerId = rd...sid
+seller = data.filter()
+return (<Seller props)
+}
+
+
+########################INSTRUCTIONS###########################
+Instructions
+
+Go over these questions to deepen your understanding
+
+Question 1
+What are the components in this project? What does each component do?
+Item, Seller, App
+
+Question 2
+For each component, list the props that the component expects
+Item(imgLocation, description, cost, sellerId)
+Seller(sellerObj(id,name, rating))
+App(none)
+
+Question 3
+What are the valid paths for this web app? What does each path display?
+/ =>shows all items
+/seller/ewio => seller ewio
+/seller/ewio => seller
+
+
+Question 4
+Where are the links located?
+
+Question 5
+How many path templates are there? What is the name of the placeholder in each path template?
