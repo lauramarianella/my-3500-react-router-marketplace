@@ -5,7 +5,7 @@ import MyItemReview from './myItemReview';
 class MyItemDetails extends Component {
   render() {
     return (
-      <div className="card center">
+      <div className="myCard myCenter">
         <h1>ItemId: {this.props.id} </h1>
         <h3>{this.props.description}</h3>
         <div>Price: ${this.props.price}</div>

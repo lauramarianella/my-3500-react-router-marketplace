@@ -5,7 +5,7 @@ import './myApp.css';
 class MyReviewer extends Component {
   render() {
     return (
-      <div className="card center">
+      <div className="myCard myCenter">
         Reviewer Id: {this.props.id}
         <div>Name: {this.props.name}</div>
       </div>

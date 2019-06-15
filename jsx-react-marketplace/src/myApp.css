@@ -13,17 +13,17 @@ img {
   height: 200px;
 }
 
-.card {
+.myCard {
   box-shadow: 0 4px 4px 0 black;
   transition: 0.3s;
 }
 
 /* On mouse-over, add a deeper shadow */
-.card:hover {
+.myCard:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-.center {
+.myCenter {
   margin: auto;
   width: 50%;
 }

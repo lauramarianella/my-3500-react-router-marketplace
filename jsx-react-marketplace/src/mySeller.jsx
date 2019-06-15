@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 class MySeller extends Component {
   render() {
     return (
-      <div className="card center">
+      <div className="myCard myCenter">
         ItemId: {this.props.id}
         <div>Name: {this.props.name}</div>
         Rating: {this.props.rating}

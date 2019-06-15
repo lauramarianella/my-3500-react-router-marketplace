@@ -13,21 +13,28 @@ import MySeller from './mySeller.jsx';
 import MyItemDetails from './myItemDetails.jsx';
 import MyReviewer from './myReviewer.jsx';
 
+import MyFormAddItem from './myFormAddItem.jsx';
+import MyFormAddSeller from './myFormAddSeller.jsx';
+
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 //Item(description, price, image, id, sellerId)
 let renderAllItems = () => {
   return (
     <div>
-      {initialItems.map((item) => (
-        <MyItem
-          description={item.description}
-          price={item.price}
-          image={item.image}
-          id={item.id}
-          sellerId={item.sellerId}
-        />
-      ))}
+      {initialItems.map((item) => {
+        return (
+          <div>
+            <MyItem
+              description={item.description}
+              price={item.price}
+              image={item.image}
+              id={item.id}
+              sellerId={item.sellerId}
+            />
+          </div>
+        );
+      })}
     </div>
   );
 };
@@ -83,12 +90,35 @@ let renderReviewer = (renderParameter) => {
   return <MyReviewer id={reviewer.id} name={reviewer.name} />;
 };
 
+//description,price,stock,url,id
+let renderAddItemForm = () => {
+  return <MyFormAddItem />;
+};
+
+//id,name,rating
+let renderAddSellerForm = () => {
+  return <MyFormAddSeller />;
+};
+
 class App extends Component {
   render() {
     return (
       <BrowserRouter>
         <div>
-          <Link to="/sellers">Visit all sellers</Link>
+          <div>
+            <Link to="/">Home</Link>
+          </div>
+          <div>
+            <Link to="/AddItem">Add Item</Link>
+          </div>
+
+          <div>
+            <Link to="/sellers">Visit all sellers</Link>
+          </div>
+          <div>
+            <Link to="/addSeller">Add Seller</Link>
+          </div>
+
           <Route exact={true} path="/" render={renderAllItems} />
           <Route exact={true} path="/sellers" render={renderAllSellers} />
           <Route exact={true} path="/seller/:sId" render={renderSeller} />
@@ -99,6 +129,9 @@ class App extends Component {
           />
 
           <Route exact={true} path="/reviewer/:rId" render={renderReviewer} />
+
+          <Route exact={true} path="/AddItem" render={renderAddItemForm} />
+          <Route exact={true} path="/AddSeller" render={renderAddSellerForm} />
         </div>
       </BrowserRouter>
     );

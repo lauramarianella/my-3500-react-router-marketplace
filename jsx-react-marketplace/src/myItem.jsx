@@ -6,7 +6,7 @@ import './myApp.css';
 class MyItem extends Component {
   render() {
     return (
-      <div className="card center">
+      <div className="myCard myCenter">
         <h3>{this.props.description}</h3>
         <div>Price: ${this.props.price}</div>
         <div>
