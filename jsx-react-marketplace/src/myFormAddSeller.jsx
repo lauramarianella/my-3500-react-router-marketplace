@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
 import './myApp.css';
+import styled from 'styled-components';
+
+const Button = styled.button`
+  padding: 10px;
+  border-radius: 5px;
+  background: blue;
+  color: #fff;
+`;
 
 class MyFormAddSeller extends Component {
   constructor() {
@@ -18,7 +26,15 @@ class MyFormAddSeller extends Component {
   onSubmitHandler = (ev) => {
     ev.preventDefault();
 
-    alert('Save the data');
+    //alert('Save the data');
+
+    let newSeller = {
+      id: this.state.sellerId,
+      name: this.state.sellerName,
+      rating: this.state.sellerRating,
+    };
+
+    this.props.sellers.push(newSeller);
 
     this.setState({
       sellerId: '',
@@ -66,7 +82,8 @@ class MyFormAddSeller extends Component {
           </div>
 
           <div>
-            <input type="submit" value="Add Seller" />
+            {/* <input type="submit" value="Add Seller" /> */}
+            <Button>Add Seller</Button>
           </div>
         </form>
       </div>

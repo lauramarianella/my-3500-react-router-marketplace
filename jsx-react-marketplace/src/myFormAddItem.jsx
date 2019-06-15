@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
 import './myApp.css';
+import styled from 'styled-components';
+
+const Button = styled.button`
+  padding: 10px;
+  border-radius: 5px;
+  background: red;
+  color: #fff;
+`;
 
 //Item(description, price, image, id, sellerId)
 class MyFormAddItem extends Component {
@@ -12,10 +20,7 @@ class MyFormAddItem extends Component {
       itmStock: '',
       itmUrl: '',
       itmId: '',
-      //seller
-      sellerId: '',
-      sellerName: '',
-      sellerRating: '',
+      itmSellerId: '',
     };
 
     this.onChangeHandler = this.onChangeHandler.bind(this);
@@ -25,7 +30,18 @@ class MyFormAddItem extends Component {
   onSubmitHandler = (ev) => {
     ev.preventDefault();
 
-    alert('Save the data');
+    //alert('Save the data');
+
+    let newItem = {
+      description: this.state.itmDescription,
+      price: this.state.itmPrice,
+      number_left_in_stock: this.state.itmStock,
+      image: this.state.itmUrl,
+      id: this.state.itmId,
+      sellerId: this.state.itmSellerId,
+    };
+
+    this.props.items.push(newItem);
 
     this.setState({
       itmDescription: '',
@@ -33,9 +49,7 @@ class MyFormAddItem extends Component {
       itmStock: '',
       itmUrl: '',
       itmId: '',
-      sellerId: '',
-      sellerName: '',
-      sellerRating: '',
+      itmSellerId: '',
     });
   };
 
@@ -96,7 +110,18 @@ class MyFormAddItem extends Component {
           </div>
 
           <div>
-            <input type="submit" value="Add Item" />
+            <input
+              type="text"
+              name="itmSellerId"
+              placeholder="Seller"
+              onChange={this.onChangeHandler}
+              value={this.state.itmSellerId}
+            />
+          </div>
+
+          <div>
+            {/* <input type="submit" value="Add Item" /> */}
+            <Button>Add Item</Button>
           </div>
         </form>
       </div>
