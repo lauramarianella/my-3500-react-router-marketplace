@@ -11,6 +11,8 @@ class MyItemDetails extends Component {
         <div>Price: ${this.props.price}</div>
         <p>Left in stock: {this.props.numberLeftInStock}</p>
         <img src={this.props.image} className="mediumImg" />
+
+        <h3>Reviews:</h3>
         {this.props.reviews.map((review) => (
           <MyItemReview review={review} />
         ))}

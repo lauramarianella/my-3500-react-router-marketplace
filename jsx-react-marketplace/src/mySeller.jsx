@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './myApp.css';
+import { initialItems } from './myData.js';
+import { Link } from 'react-router-dom';
 
 //Seller(id, name, rating)
 class MySeller extends Component {
@@ -9,6 +11,16 @@ class MySeller extends Component {
         ItemId: {this.props.id}
         <div>Name: {this.props.name}</div>
         Rating: {this.props.rating}
+        <h3>Items sell by this seller:</h3>
+        <div>
+          {initialItems
+            .filter((item) => item.sellerId === this.props.id)
+            .map((item) => (
+              <div>
+                <Link to={`/details/${item.id}`}> {item.description} </Link>
+              </div>
+            ))}
+        </div>
       </div>
     );
   }
