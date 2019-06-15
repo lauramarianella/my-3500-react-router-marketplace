@@ -13,7 +13,7 @@ import MySeller from './mySeller.jsx';
 import MyItemDetails from './myItemDetails.jsx';
 import MyReviewer from './myReviewer.jsx';
 
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 //Item(description, price, image, id, sellerId)
 let renderAllItems = () => {
@@ -27,6 +27,16 @@ let renderAllItems = () => {
           id={item.id}
           sellerId={item.sellerId}
         />
+      ))}
+    </div>
+  );
+};
+
+let renderAllSellers = () => {
+  return (
+    <div>
+      {initialSellers.map((seller) => (
+        <MySeller id={seller.id} name={seller.name} rating={seller.rating} />
       ))}
     </div>
   );
@@ -78,7 +88,9 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
+          <Link to="/sellers">Visit all sellers</Link>
           <Route exact={true} path="/" render={renderAllItems} />
+          <Route exact={true} path="/sellers" render={renderAllSellers} />
           <Route exact={true} path="/seller/:sId" render={renderSeller} />
           <Route
             exact={true}

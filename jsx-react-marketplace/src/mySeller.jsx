@@ -11,7 +11,7 @@ class MySeller extends Component {
         ItemId: {this.props.id}
         <div>Name: {this.props.name}</div>
         Rating: {this.props.rating}
-        <h3>Items sell by this seller:</h3>
+        <h3>Items to sell:</h3>
         <div>
           {initialItems
             .filter((item) => item.sellerId === this.props.id)
